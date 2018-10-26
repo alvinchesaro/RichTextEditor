@@ -1,0 +1,69 @@
+﻿<Window x:Class="RichTextEditor.EditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RichTextEditor"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="EditorWindow" Height="450" Width="800" Icon="rte.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="8*" />
+        </Grid.RowDefinitions>
+        <Ribbon Foreground="#333333" Margin="0,1,0,1">
+            <RibbonTab Header="Complaint Report">
+                <RibbonGroup Header="Quick Actions" Width="219" Margin="0,1,0,4" >
+                    <RibbonButton x:Name="_btnPaste" Label="Paste" LargeImageSource="WYSIWYG/paste.png" ToolTip="Paste" Command="ApplicationCommands.Paste" CommandTarget="{Binding ElementName=_richTextBox}"/>
+
+                    <RibbonButton x:Name="_btnCut" Label="Cut" SmallImageSource="WYSIWYG/cut.png" ToolTip="Cut" Command="ApplicationCommands.Cut" CommandTarget="{Binding ElementName=_richTextBox}"/>
+
+                    <RibbonButton x:Name="_btnCopy" Label="Copy" SmallImageSource="WYSIWYG/copy.png" ToolTip="Copy" Command="ApplicationCommands.Copy" CommandTarget="{Binding ElementName=_richTextBox}"/>
+
+                    <RibbonButton x:Name="_btnClear" Label="Clear" SmallImageSource="WYSIWYG/close.png" ToolTip="Clear" Command="EditingCommands.Delete" CommandTarget="{Binding ElementName=_richTextBox}"/>
+
+                    <RibbonButton x:Name="_btnUndo" Label="Undo" SmallImageSource="WYSIWYG/undo.png " ToolTip="Undo" Command="ApplicationCommands.Undo" CommandTarget="{Binding ElementName=_richTextBox}"/>
+
+                    <RibbonButton x:Name="_bntRedo" Label="Redo" SmallImageSource="WYSIWYG/redo.png" ToolTip="Redo" Command="ApplicationCommands.Redo" CommandTarget="{Binding ElementName=_richTextBox}"/>
+
+                    <RibbonButton x:Name="_btnSelectAll" Label="Select All" ToolTip="Select All" Command="ApplicationCommands.SelectAll" SmallImageSource="WYSIWYG/select-all.png" CommandTarget="{Binding ElementName=_richTextBox}" />
+
+
+
+                </RibbonGroup>
+                <RibbonGroup Header="Style Document" Width="280" Margin="0,1,0,4">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox Name="cmbFontFamily" Width="160" SelectionChanged="cmbFontFamily_SelectionChanged" />
+                            <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <RibbonToggleButton Command="EditingCommands.ToggleBold" Name="btnBold" SmallImageSource="WYSIWYG/bold.png"/>
+
+                            <RibbonToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic" SmallImageSource="WYSIWYG/italic.png"/>
+
+                            <RibbonToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline" SmallImageSource="WYSIWYG/UnderLine.png" />
+
+
+                            <RibbonToggleButton x:Name="SettingsFontColor" SmallImageSource="WYSIWYG/Color.png" Click="SettingsFontColor_Click" />
+                            <RibbonButton x:Name="addImage" ToolTip="Add Image to Statement" SmallImageSource="WYSIWYG/image.png" Click="addImage_Click"/>
+                            <RibbonRadioButton x:Name="_btnAlignLeft" ToolTip="Align Text Left" Command="EditingCommands.AlignLeft" CommandTarget="{Binding ElementName=_richTextBox}" SmallImageSource="WYSIWYG/LeftAlign.png" />
+                            <RibbonRadioButton x:Name="_btnAlignCenter" Label="" ToolTip="Center" Command="EditingCommands.AlignCenter" CommandTarget="{Binding ElementName=_richTextBox}" SmallImageSource="WYSIWYG/center2.png" />
+                            <RibbonRadioButton x:Name="_btnAlignRight" Label="" ToolTip="Align Text Right" Command="EditingCommands.AlignRight" CommandTarget="{Binding ElementName=_richTextBox}" SmallImageSource="WYSIWYG/RightAlign.png"/>
+                            <RibbonRadioButton x:Name="_btnAlignJustify" Label="" Command="EditingCommands.AlignJustify" CommandTarget="{Binding ElementName=_richTextBox}" SmallImageSource="WYSIWYG/center.png"/>
+                            <RibbonRadioButton x:Name="_btnNumbers" Label="" ToolTip="Numbering" Command="EditingCommands.ToggleNumbering" CommandTarget="{Binding ElementName=_richTextBox}" SmallImageSource="WYSIWYG/Numbered.png"/>
+                            <RibbonRadioButton x:Name="_btnBullets" Label="" ToolTip="Bullets" Command="EditingCommands.ToggleBullets" CommandTarget="{Binding ElementName=_richTextBox}" SmallImageSource="WYSIWYG/bullets.png"/>
+
+                        </StackPanel>
+                    </StackPanel>
+                </RibbonGroup>
+            </RibbonTab>
+        </Ribbon>
+
+        <!--End Ribbon-->
+
+        <!--Rich Text Box-->
+        <RichTextBox SpellCheck.IsEnabled="True" x:Name="rtbEditor" Grid.Row="1" SelectionChanged="rtbEditor_SelectionChanged" AcceptsTab="True" VerticalScrollBarVisibility="Auto" Height="Auto" BorderBrush="#FFFF7F00" />
+    </Grid>
+</Window>

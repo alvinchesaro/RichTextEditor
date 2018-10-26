@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{810D7237-6E2D-4D9A-B888-7825443D1124}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RichTextEditor</RootNamespace>
+    <AssemblyName>RichTextEditor</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>rte.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="EditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EditorWindow.xaml.cs">
+      <DependentUpon>EditorWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WYSIWYG\all.png" />
+    <Resource Include="WYSIWYG\backcolor.png" />
+    <Resource Include="WYSIWYG\bold.png" />
+    <Resource Include="WYSIWYG\bullets.png" />
+    <Resource Include="WYSIWYG\cancel.png" />
+    <Resource Include="WYSIWYG\center.png" />
+    <Resource Include="WYSIWYG\center2.png" />
+    <Resource Include="WYSIWYG\close.png" />
+    <Resource Include="WYSIWYG\Color.png" />
+    <Resource Include="WYSIWYG\copy.png" />
+    <Resource Include="WYSIWYG\cut.png" />
+    <Resource Include="WYSIWYG\Editor.png" />
+    <Resource Include="WYSIWYG\eraser.png" />
+    <Resource Include="WYSIWYG\folder.png" />
+    <Resource Include="WYSIWYG\html.png" />
+    <Resource Include="WYSIWYG\ident.png" />
+    <Resource Include="WYSIWYG\image.png" />
+    <Resource Include="WYSIWYG\italic.png" />
+    <Resource Include="WYSIWYG\LeftAlign.png" />
+    <Resource Include="WYSIWYG\link.png" />
+    <Resource Include="WYSIWYG\new.png" />
+    <Resource Include="WYSIWYG\Numbered.png" />
+    <Resource Include="WYSIWYG\ok.png" />
+    <Resource Include="WYSIWYG\open.png" />
+    <Resource Include="WYSIWYG\OutIdent.png" />
+    <Resource Include="WYSIWYG\paste.png" />
+    <Resource Include="WYSIWYG\redo.png" />
+    <Resource Include="WYSIWYG\RightAlign.png" />
+    <Resource Include="WYSIWYG\save.png" />
+    <Resource Include="WYSIWYG\select-all.png" />
+    <Resource Include="WYSIWYG\UnderLine.png" />
+    <Resource Include="WYSIWYG\undo.png" />
+    <Resource Include="WYSIWYG\view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rte.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
